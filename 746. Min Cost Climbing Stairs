@@ -1,0 +1,13 @@
+#RECURSIVE APPROACH
+
+class Solution(object):
+    def minCostClimbingStairs(self, lst):
+        n=len(lst)
+        val=min(self.fun(0,n,lst),self.fun(0,n-1,lst))
+        return val
+    def fun(self,c,n,lst):
+        if n<=0:
+            return c 
+        return min(self.fun(c+lst[n-1],n-1,lst),self.fun(c+lst[n-1],n-2,lst))
+
+    
