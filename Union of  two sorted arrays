@@ -15,30 +15,42 @@ class Solution:
         j=0
         lst=[]
         i=0
+        idx=0
+        lst.append(min(a[i],b[j]))
         while(i<n and j<m):
-            if a[i] in lst:
+            if a[i]==lst[idx]:
                 i+=1
-            elif b[j] in lst:
+                continue
+            elif b[j]== lst[idx]:
                 j+=1
+                continue
             elif a[i]==b[j]:
+                idx+=1
                 lst.append(a[i])
                 i+=1
                 j+=1
+                continue
             elif a[i]<b[j] :
+                idx+=1
                 lst.append(a[i])
                 i+=1
+                continue
             elif a[i]>b[j]:
+                idx+=1
                 lst.append(b[j])
                 j+=1
+                continue
         if i<n:
             for z in range(i,n):
-                if a[z] not in lst:
+                if a[z]!=lst[idx]:
                     lst.append(a[z])
+                    idx+=1
             
-        if j<m:
+        elif j<m:
             for i in range (j,m):
-                if b[i] not in lst:
+                if b[i] !=lst[idx]:
                     lst.append(b[i])
+                    idx+=1
         return lst
                 
 
