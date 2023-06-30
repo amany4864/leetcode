@@ -1,6 +1,5 @@
 class Solution:
     def moveZeroes(self, nums: List[int]) -> None:
-        ZeroCounter=0
         for i in range(len(nums)):
             if nums[i]==0:
                 nums.remove(0)
